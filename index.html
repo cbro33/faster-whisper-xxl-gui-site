@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,66 +10,98 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Modern, pro-grade typography -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body id="top">
-    <div class="bg-glow"></div>
-    <header class="nav">
-      <div class="nav__brand">
-        <span class="nav__logo">FW</span>
-        <div>
-          <div class="nav__title">Faster Whisper XXL GUI</div>
-          <div class="nav__subtitle">Transcribe. Translate. Export.</div>
+    <!-- Technical grid background instead of a glowing blob -->
+    <div class="tech-grid" aria-hidden="true"></div>
+
+    <!-- Floating Dock Navigation -->
+    <header class="nav-dock">
+      <div class="nav-dock__brand">
+        <svg class="nav-dock__logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor"/>
+          <path d="M2 17L12 22L22 17M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="nav-dock__text">
+          <span class="nav-dock__title">FW-XXL</span>
         </div>
       </div>
-      <nav class="nav__links">
-        <a href="#top">Features</a>
+      <nav class="nav-dock__links" id="navLinks">
+        <a href="#features">Features</a>
         <a href="#workflow">Workflow</a>
         <a href="#models">Models</a>
-        <a href="#download">Download</a>
       </nav>
-      <div class="nav__actions">
-        <button class="btn btn--ghost theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
-          <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+      <button
+        class="btn-icon nav-toggle"
+        id="navToggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-controls="navLinks"
+        aria-expanded="false"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <div class="nav-dock__actions">
+        <button class="btn-icon theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+          <!-- Sun Icon (Hidden in dark mode) -->
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <!-- Moon Icon (Hidden in light mode) -->
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
-        <a class="btn btn--ghost" href="https://github.com/cbro33/Faster-Whisper-XXL-GUI" target="_blank" rel="noreferrer">
+        <a class="btn btn--outline nav-github" href="https://github.com/cbro33/Faster-Whisper-XXL-GUI" target="_blank" rel="noreferrer">
           GitHub
+        </a>
+        <a class="btn btn--primary" href="https://github.com/cbro33/Faster-Whisper-XXL-GUI/releases/latest" target="_blank" rel="noreferrer">
+          Download
         </a>
       </div>
     </header>
 
-    <main>
+    <main class="container">
       <section class="hero">
-        <div class="hero__content">
-          <div class="hero__tag">Desktop GUI for Faster-Whisper-XXL</div>
-          <h1>
-            Transcribe audio fast. Keep the workflow simple.
-          </h1>
-          <p>
-            Download YouTube audio, batch transcribe local files, and swap between
-            custom models with a clean, GPU-aware interface. Built for speed, tuned
-            for smoother workflows.
-          </p>
-          <div class="hero__meta">
-            <span>Local Transcription + YouTube</span>
-            <span>Custom Hugging Face models + conversion</span>
-            <span>Multi-format export</span>
-          </div>
-          <div class="hero__actions">
-            <a class="btn" href="https://github.com/cbro33/Faster-Whisper-XXL-GUI/releases/latest" target="_blank" rel="noreferrer">
-              Get the latest release
-            </a>
-            <a class="btn btn--ghost" href="https://github.com/cbro33/Faster-Whisper-XXL-GUI" target="_blank" rel="noreferrer">
-              View on GitHub
-            </a>
-          </div>
+        <div class="hero__badge">Desktop GUI built for Faster-Whisper-XXL</div>
+        <h1 class="hero__title">
+          Transcribe audio <span>faster</span>.<br />
+          Keep workflows simple.
+        </h1>
+        <p class="hero__desc">
+          Download YouTube audio or video, batch transcribe local files, and switch between custom Hugging Face models with a clean, GPU-aware interface.
+        </p>
+        
+        <div class="hero__meta">
+          <div class="meta-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Local + YouTube Ingest</div>
+          <div class="meta-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom Hugging Face Models</div>
+          <div class="meta-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Multi-format Export</div>
         </div>
-        <div class="hero__visual">
-          <div class="hero__frame">
+
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--large" href="https://github.com/cbro33/Faster-Whisper-XXL-GUI/releases/latest" target="_blank" rel="noreferrer">
+            Get Latest Release
+          </a>
+          <a class="btn btn--outline btn--large" href="https://github.com/cbro33/Faster-Whisper-XXL-GUI" target="_blank" rel="noreferrer">
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            GitHub Source
+          </a>
+        </div>
+
+        <div class="app-mockup">
+          <div class="app-mockup__header">
+            <div class="app-mockup__dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="app-mockup__title">Faster Whisper XXL</div>
+          </div>
+          <div class="app-mockup__body">
             <img
               id="heroImage"
               src="assets/AMOLEDThemeScreenshot.png"
@@ -78,130 +110,150 @@
               data-light="assets/LightThemeScreenshot.png"
             />
           </div>
-          <div class="hero__caption hero__caption--hidden">AMOLED theme preview</div>
         </div>
       </section>
 
-      <section class="section">
+      <section id="features" class="section">
         <div class="section__header">
-          <h2 id="features">Built for the full transcription workflow</h2>
-          <p>Every step is streamlined, from ingest to export.</p>
+          <h2>Full pipeline control.</h2>
+          <p>Every step of the transcription workflow is streamlined and heavily optimized within a unified interface.</p>
         </div>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <h3>Smart ingestion</h3>
-            <p>Drag-drop files, paste YouTube links, or batch entire folders.</p>
-          </article>
-          <article class="feature-card">
-            <h3>Model control</h3>
-            <p>Enable, verify, and switch models without leaving the UI.</p>
-          </article>
-          <article class="feature-card">
-            <h3>Conversion support</h3>
-            <p>Transforms Transformers weights into CT2 for Faster-Whisper-XXL.</p>
-          </article>
-          <article class="feature-card">
-            <h3>Multiple output formats</h3>
-            <p>Export SRT, VTT, JSON, LRC, TXT, TSV, and more.</p>
-          </article>
-          <article class="feature-card">
-            <h3>Hardware aware</h3>
-            <p>GPU vs CPU recommendations and compute type tuning.</p>
-          </article>
-          <article class="feature-card">
-            <h3>Theme collection</h3>
-            <p>Light, Dark, and AMOLED themes.</p>
-          </article>
-        </div>
-      </section>
+        
+        <!-- Bento Box Grid -->
+        <div class="bento-grid">
+          <div class="bento-card bento-card--large bento-bg-ingest">
+            <div class="bento-card__content">
+              <h3>Smart Ingestion</h3>
+              <p>Drag and drop local files, paste YouTube links directly, or batch process entire directories effortlessly.</p>
+            </div>
+          </div>
+          
+          <div class="bento-card">
+            <div class="bento-card__content">
+              <h3>Multiple Outputs</h3>
+              <p>Export simultaneously to JSON, VTT, SRT, LRC, TXT, and TSV formats.</p>
+              <div class="format-tags">
+                <span>.JSON</span><span>.VTT</span><span>.SRT</span><span>.LRC</span><span>.TXT</span><span>.TSV</span>
+              </div>
+            </div>
+          </div>
 
-      <section class="section section--compact">
-        <div class="section__header">
-          <h2 id="workflow">Fast setup, fast results</h2>
-          <p>Three steps from first launch to export.</p>
-        </div>
-        <div class="timeline timeline--compact">
-          <div class="timeline__item">
-            <div class="timeline__title">Launch + download</div>
-            <p>Auto-download Faster-Whisper-XXL + FFmpeg if missing.</p>
+          <div class="bento-card">
+            <div class="bento-card__content">
+              <h3>Hardware Aware</h3>
+              <p>Hardware optimization can recommend GPU/CPU, model, and compute settings for your system.</p>
+            </div>
           </div>
-          <div class="timeline__item">
-            <div class="timeline__title">Configure + queue</div>
-            <p>Pick model, task, and output formats. Add files or links.</p>
+
+          <div class="bento-card">
+            <div class="bento-card__content">
+              <h3>On-the-fly Conversion</h3>
+              <p>If a repo has Transformers-only weights, the app prompts (or auto-converts) to CT2 so it can run in Faster-Whisper-XXL.</p>
+            </div>
           </div>
-          <div class="timeline__item">
-            <div class="timeline__title">Transcribe + export</div>
-            <p>Monitor progress and export multiple formats.</p>
+
+          <div class="bento-card">
+            <div class="bento-card__content">
+              <h3>Model Control</h3>
+              <p>Enable, verify, and switch built-in or custom models directly in Manage Models.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section">
-        <div class="section__header">
-          <h2 id="models">Custom models, no manual conversions</h2>
-          <p>Bring in any Hugging Face model and keep your pipeline consistent.</p>
+      <section id="workflow" class="section">
+        <div class="section__header section__header--center">
+          <h2>Fast setup, fast results.</h2>
+          <p>From launch to output in three simple steps.</p>
         </div>
-        <div class="model-flow">
-          <div class="model-step">
-            <h3>Add from Hugging Face</h3>
-            <p>Paste a repo URL or ID in the Model Manager.</p>
+        
+        <div class="timeline">
+          <div class="timeline__step">
+            <div class="timeline__number">01</div>
+            <div class="timeline__content">
+              <h3>Launch & Auto-Download</h3>
+              <p>On first run, the app can download Faster-Whisper-XXL and FFmpeg dependencies if they are missing.</p>
+            </div>
           </div>
-          <div class="model-step">
-            <h3>Detect weights</h3>
-            <p>CT2 models download directly; Transformers models trigger conversion.</p>
+          <div class="timeline__step">
+            <div class="timeline__number">02</div>
+            <div class="timeline__content">
+              <h3>Configure & Queue</h3>
+              <p>Select your desired model, transcription/translation task, and check the output formats you need. Drop in your files.</p>
+            </div>
           </div>
-          <div class="model-step">
-            <h3>Convert to CT2</h3>
-            <p>EXE builds fetch a converter bundle once; source uses your Python installation.</p>
-          </div>
-          <div class="model-step">
-            <h3>Verify and go</h3>
-            <p>Run a quick model check and start transcribing.</p>
+          <div class="timeline__step">
+            <div class="timeline__number">03</div>
+            <div class="timeline__content">
+              <h3>Transcribe & Export</h3>
+              <p>Monitor real-time progress. Save outputs to your chosen output folder or next to the source media.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section section--cta">
-        <div class="cta">
-          <div>
-            <h2 id="download">Ready to transcribe faster?</h2>
-            <p>Grab the latest release or build from source.</p>
-          </div>
-          <div class="cta__actions">
-            <a class="btn" href="https://github.com/cbro33/Faster-Whisper-XXL-GUI/releases/latest" target="_blank" rel="noreferrer">
-              Download latest release
-            </a>
-            <a class="btn btn--ghost" href="https://github.com/cbro33/Faster-Whisper-XXL-GUI/wiki" target="_blank" rel="noreferrer">
-              Read the wiki
+      <section id="models" class="section">
+        <div class="section-box">
+          <div class="section-box__text">
+            <h2>Custom models, no manual conversion scripts.</h2>
+            <p>Bring in any Hugging Face model and keep your pipeline consistent. CT2 repos download directly, while Transformers-only repos prompt conversion (or auto-convert if enabled). EXE builds can use a converter bundle; source builds use your configured Python environment.</p>
+            <a class="btn btn--outline" href="https://github.com/cbro33/Faster-Whisper-XXL-GUI/wiki" target="_blank" rel="noreferrer">
+              Read the Documentation
             </a>
           </div>
+          <div class="section-box__visual">
+            <div class="code-block">
+              <div class="code-line"><span class="code-muted"># Enter Hugging Face repo ID or URL</span></div>
+              <div class="code-line"><span class="code-accent">Fetch</span> <span class="code-text">"Systran/faster-whisper-large-v3"</span></div>
+              <div class="code-line"><span class="code-muted">>> Download model files from repo metadata</span></div>
+              <div class="code-line"><span class="code-muted">>> If model.bin exists: use as-is (CTranslate2 ready)</span></div>
+              <div class="code-line"><span class="code-muted">>> If only Transformers weights: prompt/auto-convert to CT2</span></div>
+              <div class="code-line"><span class="code-success">>> Done when model.bin is created (ready to transcribe)</span></div>
+            </div>
+          </div>
         </div>
       </section>
-      <div class="scroll-spacer" aria-hidden="true"></div>
+
+      <section class="section-cta">
+        <h2>Ready to optimize your workflow?</h2>
+        <p>Grab the standalone executable or build it directly from source.</p>
+        <div class="hero__actions hero__actions--center">
+          <a class="btn btn--primary btn--large" href="https://github.com/cbro33/Faster-Whisper-XXL-GUI/releases/latest" target="_blank" rel="noreferrer">
+            Download Latest Release
+          </a>
+          <a class="btn btn--outline btn--large" href="https://github.com/cbro33/Faster-Whisper-XXL-GUI" target="_blank" rel="noreferrer">
+            View Source Code
+          </a>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
-      <div>Made for Faster-Whisper-XXL workflows.</div>
-      <div class="footer__links">
-        <a href="https://github.com/cbro33/Faster-Whisper-XXL-GUI" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://github.com/cbro33/Faster-Whisper-XXL-GUI/releases/latest" target="_blank" rel="noreferrer">Releases</a>
-        <a href="https://github.com/cbro33/Faster-Whisper-XXL-GUI/wiki" target="_blank" rel="noreferrer">Wiki</a>
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <strong>Faster Whisper XXL GUI</strong>
+          <p>Built for speed and workflow efficiency.</p>
+        </div>
+        <div class="footer__links">
+          <a href="https://github.com/cbro33/Faster-Whisper-XXL-GUI" target="_blank" rel="noreferrer">GitHub Repo</a>
+          <a href="https://github.com/cbro33/Faster-Whisper-XXL-GUI/releases/latest" target="_blank" rel="noreferrer">Releases</a>
+          <a href="https://github.com/cbro33/Faster-Whisper-XXL-GUI/wiki" target="_blank" rel="noreferrer">Documentation Wiki</a>
+        </div>
       </div>
     </footer>
+
     <script>
       (function () {
         const root = document.documentElement;
         const toggle = document.getElementById("themeToggle");
-        const icon = toggle ? toggle.querySelector(".theme-toggle__icon") : null;
         const heroImage = document.getElementById("heroImage");
         const storageKey = "fwxxl-theme";
-        const modes = ["dark", "light"];
+        const navDock = document.querySelector(".nav-dock");
+        const navToggle = document.getElementById("navToggle");
+        const navLinks = document.getElementById("navLinks");
 
         function applyTheme(mode) {
           root.setAttribute("data-theme", mode);
-          if (icon) {
-            icon.textContent = mode === "light" ? "☀️" : "🌙";
-          }
           if (heroImage) {
             const src = mode === "light" ? heroImage.dataset.light : heroImage.dataset.dark;
             if (src) {
@@ -212,7 +264,7 @@
 
         function getStoredTheme() {
           const saved = localStorage.getItem(storageKey);
-          if (modes.includes(saved)) {
+          if (saved === "dark" || saved === "light") {
             return saved;
           }
           const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
@@ -220,16 +272,59 @@
         }
 
         function setNextTheme() {
-          const current = getStoredTheme();
+          const current = root.getAttribute("data-theme");
           const next = current === "light" ? "dark" : "light";
           localStorage.setItem(storageKey, next);
           applyTheme(next);
         }
 
+        function closeNavMenu() {
+          if (!navLinks || !navToggle) {
+            return;
+          }
+          navLinks.classList.remove("is-open");
+          navToggle.setAttribute("aria-expanded", "false");
+        }
+
+        function toggleNavMenu() {
+          if (!navLinks || !navToggle) {
+            return;
+          }
+          const isOpen = navLinks.classList.toggle("is-open");
+          navToggle.setAttribute("aria-expanded", String(isOpen));
+        }
+
+        // Init
         applyTheme(getStoredTheme());
+        
         if (toggle) {
           toggle.addEventListener("click", setNextTheme);
         }
+
+        if (navToggle) {
+          navToggle.addEventListener("click", toggleNavMenu);
+        }
+
+        if (navLinks) {
+          navLinks.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", closeNavMenu);
+          });
+        }
+
+        document.addEventListener("click", (event) => {
+          if (!navDock || !navLinks || !navLinks.classList.contains("is-open")) {
+            return;
+          }
+          if (!navDock.contains(event.target)) {
+            closeNavMenu();
+          }
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 900) {
+            closeNavMenu();
+          }
+        });
       })();
     </script>
   </body>
